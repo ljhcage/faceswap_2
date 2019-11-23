@@ -86,7 +86,8 @@ def Check_System():
 
 def Enable_CUDA():
     global ENABLE_CUDA
-    i = input("Enable  CUDA? [Y/n] ")
+    #i = input("Enable  CUDA? [Y/n] ")
+    i = "Y"
     if i == "" or i == "Y" or i == "y":
         INFO("CUDA Enabled")
         ENABLE_CUDA = True
@@ -96,7 +97,8 @@ def Enable_CUDA():
 
 def Enable_Docker():
     global ENABLE_DOCKER
-    i = input("Enable  Docker? [Y/n] ")
+    #i = input("Enable  Docker? [Y/n] ")
+    i = "n"
     if i == "" or i == "Y" or i == "y":
         INFO("Docker Enabled")
         ENABLE_DOCKER = True
@@ -176,7 +178,8 @@ cuDNN: https://developer.nvidia.com/rdp/cudnn-download
 """)
 
 def Continue():
-    i = input("Are System Dependencies met? [y/N] ")
+    #i = input("Are System Dependencies met? [y/N] ")
+    i = 'y'
     if i == "" or i == "N" or i == "n":
         ERROR('Please install system dependencies to continue')
 
@@ -237,7 +240,8 @@ def Update_TF_Dep():
             WARNING("Tensorflow has no official prebuild for CUDA 9.1 currently.\r\n"
                     "To continue, You have to build and install your own tensorflow-gpu.\r\n"
                     "Help: https://www.tensorflow.org/install/install_sources")
-            custom_tf = input("Location of custom tensorflow-gpu wheel (leave blank to manually install): ")
+            # custom_tf = input("Location of custom tensorflow-gpu wheel (leave blank to manually install): ")
+            custom_tf = ''
             if not custom_tf:
                 del Required_Packages[0]
                 return
